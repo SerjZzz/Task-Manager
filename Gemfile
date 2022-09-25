@@ -45,7 +45,6 @@ group :development, :test do
   # RuboCop is a Ruby static code analyzer (a.k.a. linter) and code formatter.
   # Out of the box it will enforce many of the guidelines outlined in the community Ruby Style Guide.
   gem 'rubocop'
-
 end
 
 group :development do
