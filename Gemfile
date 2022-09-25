@@ -26,9 +26,26 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Ruby gem for password encryption
+gem 'bcrypt', '~> 3.1.7'
+# Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms.
+gem 'simple_form'
+# State Machines adds support for creating state machines for attributes on any Ruby class.
+gem 'state_machines'
+# Adds support for database transactions, automatically saving the record, named scopes, validation errors.
+gem 'state_machines-activerecord'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Provides Rails integration for factory_bot.
+  # Factory_bot is a fixtures replacement with a straightforward definition syntax,
+  # support for multiple build strategies, and factories for the same class, including factory inheritance.
+  gem 'factory_bot_rails'
+  # RuboCop is a Ruby static code analyzer (a.k.a. linter) and code formatter.
+  # Out of the box it will enforce many of the guidelines outlined in the community Ruby Style Guide.
+  gem 'rubocop'
+
 end
 
 group :development do
