@@ -46,7 +46,7 @@ group :development, :test do
   # Out of the box it will enforce many of the guidelines outlined in the community Ruby Style Guide.
   gem 'rubocop'
   # Rubocop for Rails
-  gem 'rubocop-rails', require: false
+  gem 'rubocop-rails'
 end
 
 group :development do

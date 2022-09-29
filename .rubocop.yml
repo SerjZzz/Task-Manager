@@ -1,5 +1,3 @@
-require: rubocop-rails
-
 AllCops:
   Exclude:
     - db/**/*
@@ -7,6 +5,9 @@ AllCops:
     - node_modules/**/*
     - bin/*
     - vendor/**/*
+
+require: 
+  - rubocop-rails
 
 Bundler/OrderedGems:
   Enabled: false
