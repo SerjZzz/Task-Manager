@@ -9,7 +9,7 @@ class Task < ApplicationRecord
 
   state_machine initial: :new_task do
     event :develop do
-      transition [:new_, :task, :in_qa, :in_code_review] => :in_development
+      transition [:new_task, :in_qa, :in_code_review] => :in_development
     end
 
     event :test do
