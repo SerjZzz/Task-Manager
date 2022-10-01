@@ -10,6 +10,6 @@ FactoryBot.define do
   sequence :state, [:new_task, :in_development, :in_qa, :in_code_review, :ready_for_release, :released, :archived].cycle
 
   sequence :expired_at do |n|
-    Time.now + (60 * 60 * 24 * n)
+    Time.now.getlocal + (60 * 60 * 24 * n)
   end
 end
