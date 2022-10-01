@@ -35,7 +35,7 @@ gem 'state_machines'
 # Adds support for database transactions, automatically saving the record, named scopes, validation errors.
 gem 'state_machines-activerecord'
 # Gem slim-rails provides Slim generators for Rails 3+. It was based on haml-rails and it does basically the same
-gem "slim-rails"
+gem 'slim-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
