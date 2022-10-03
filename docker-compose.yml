@@ -9,6 +9,7 @@ services:
       - ~/.bash_history:/root/.bash_history
       - &bundle-cache-volume bundle_cache:/bundle_cache
     ports:
+      - 8080:8080
       - 3000:3000
       - 3001:3001
       - 3002:3002
@@ -23,7 +24,7 @@ services:
       GEM_PATH: /bundle_cache
       RAILS_PORT: 3000
       RUBYOPT: -W:no-deprecated -W:no-experimental
-    command: bundle exec rails s -b '0.0.0.0' -p 3000
+    command: bundle exec rails s -b '0.0.0.0' -p 8080
 
   db:
     image: postgres:11.4
