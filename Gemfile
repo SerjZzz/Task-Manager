@@ -40,7 +40,7 @@ gem 'slim-rails'
 gem 'kaminari'
 # Ransack do easily add searching to Rails application, without any additional dependencies.
 # Bleeding edge - If you would like to use the latest updates not yet published to RubyGems, use the main branch
-gem 'ransack', :github => 'activerecord-hackery/ransack', :branch => 'main'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'main'
 # A set of Rails responders to dry up application
 gem 'responders'
 # ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner.
