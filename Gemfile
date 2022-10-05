@@ -36,6 +36,15 @@ gem 'state_machines'
 gem 'state_machines-activerecord'
 # Gem slim-rails provides Slim generators for Rails 3+. It was based on haml-rails and it does basically the same
 gem 'slim-rails'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
+gem 'kaminari'
+# Ransack do easily add searching to Rails application, without any additional dependencies.
+# Bleeding edge - If you would like to use the latest updates not yet published to RubyGems, use the main branch
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'main'
+# A set of Rails responders to dry up application
+gem 'responders'
+# ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner.
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
