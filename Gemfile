@@ -46,7 +46,7 @@ gem 'responders'
 # ActiveModel::Serializers allows you to generate your JSON in an object-oriented and convention-driven manner.
 gem 'active_model_serializers'
 # Webpacker-React makes it easy to use React with Webpacker in your Rails applications.
-gem 'webpacker-react', '~> 1.0.0.beta.1'
+gem 'webpacker-react', '~> 0.3.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
