@@ -47,6 +47,8 @@ gem 'responders'
 gem 'active_model_serializers'
 # Webpacker-React makes it easy to use React with Webpacker in your Rails applications.
 gem 'webpacker-react', '~> 0.3.2'
+# Generates javascript file that defines all Rails named routes as javascript helpers
+gem 'js-routes'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
