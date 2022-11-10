@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { isNil } from 'ramda';
 
 import Form from './Form';
+import TaskPresenter from 'presenters/TaskPresenter';
+
 import {
   Button,
   Card,
@@ -71,7 +73,7 @@ function EditPopup({
           title={
             isLoading
               ? 'Your task is loading. Please be patient.'
-              : `Task # ${task.id} [${task.name}]`
+              : `Task # ${TaskPresenter.id(task)} [${TaskPresenter.name(task)}]`
           }
         />
         <CardContent>

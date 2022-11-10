@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TaskPresenter from 'presenters/TaskPresenter';
+
 import {
   Card,
   CardHeader,
@@ -23,10 +25,10 @@ function Task({ task, onClick }) {
 
   return (
     <Card className={styles.root}>
-      <CardHeader title={task.name} action={action} />
+      <CardHeader title={TaskPresenter.name(task)} action={action} />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          {task.description}
+          {TaskPresenter.description(task)}
         </Typography>
       </CardContent>
     </Card>
@@ -34,14 +36,7 @@ function Task({ task, onClick }) {
 }
 
 Task.propTypes = {
-  task: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    author: PropTypes.shape().isRequired,
-    assignee: PropTypes.shape(),
-    state: PropTypes.string.isRequired,
-  }).isRequired,
+  task: TaskPresenter.shape().isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
