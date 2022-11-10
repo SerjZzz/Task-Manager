@@ -47,6 +47,8 @@ gem 'responders'
 gem 'active_model_serializers'
 # Webpacker-React makes it easy to use React with Webpacker in your Rails applications.
 gem 'webpacker-react', '~> 0.3.2'
+# Generates javascript file that defines all Rails named routes as javascript helpers
+gem 'js-routes'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -60,6 +62,12 @@ group :development, :test do
   gem 'rubocop'
   # Rubocop for Rails
   gem 'rubocop-rails'
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  # Gem adds real-looking test data, and having your database populated with more than one or two records while you're doing development.
+  gem 'faker', '~> 2.23'
+  # The Bullet gem help increase application's performance by reducing the number of queries it makes.
+  # Watch queries and notify you when add eager loading (N+1 queries).
+  gem 'bullet'
 end
 
 group :development do
