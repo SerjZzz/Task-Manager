@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { has } from 'ramda';
 
+import TaskForm from 'forms/TaskForm';
+import UserSelect from 'components/UserSelect';
+
 import {
   Button,
   Card,
@@ -13,7 +16,7 @@ import {
   TextField,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import TaskForm from 'forms/TaskForm';
+
 import useStyles from './useStyles';
 
 function AddPopup({ onClose, onCreateCard }) {
@@ -37,6 +40,9 @@ function AddPopup({ onClose, onCreateCard }) {
 
   const handleChangeTextField = (fieldName) => (event) =>
     changeTask({ ...task, [fieldName]: event.target.value });
+
+  const handleChangeSelect = (fieldName) => (user) =>
+    changeTask({ ...task, [fieldName]: user });
 
   const styles = useStyles();
 
@@ -70,6 +76,14 @@ function AddPopup({ onClose, onCreateCard }) {
               label="Description"
               required
               margin="dense"
+            />
+            <UserSelect
+              label="Assignee"
+              value={task.assignee}
+              onChange={handleChangeSelect('assignee')}
+              isRequired
+              error={has('assignee', errors)}
+              helperText={errors.assignee}
             />
           </div>
         </CardContent>
