@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { has } from 'ramda';
 
+import TaskForm from 'forms/TaskForm';
+import UserSelect from 'components/UserSelect';
+import TaskPresenter from 'presenters/TaskPresenter';
+
 import {
   Button,
   Card,
@@ -13,7 +17,7 @@ import {
   TextField,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import TaskForm from 'forms/TaskForm';
+
 import useStyles from './useStyles';
 
 function AddPopup({ onClose, onCreateCard }) {
@@ -38,6 +42,9 @@ function AddPopup({ onClose, onCreateCard }) {
   const handleChangeTextField = (fieldName) => (event) =>
     changeTask({ ...task, [fieldName]: event.target.value });
 
+  const handleChangeSelect = (fieldName) => (user) =>
+    changeTask({ ...task, [fieldName]: user });
+
   const styles = useStyles();
 
   return (
@@ -57,7 +64,7 @@ function AddPopup({ onClose, onCreateCard }) {
               error={has('name', errors)}
               helperText={errors.name}
               onChange={handleChangeTextField('name')}
-              value={task.name}
+              value={TaskPresenter.name(task)}
               label="Name"
               required
               margin="dense"
@@ -66,10 +73,18 @@ function AddPopup({ onClose, onCreateCard }) {
               error={has('description', errors)}
               helperText={errors.description}
               onChange={handleChangeTextField('description')}
-              value={task.description}
+              value={TaskPresenter.description(task)}
               label="Description"
               required
               margin="dense"
+            />
+            <UserSelect
+              label="Assignee"
+              value={TaskPresenter.assignee(task)}
+              onChange={handleChangeSelect('assignee')}
+              isRequired
+              error={has('assignee', errors)}
+              helperText={errors.assignee}
             />
           </div>
         </CardContent>

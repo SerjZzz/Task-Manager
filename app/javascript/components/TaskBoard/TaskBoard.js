@@ -9,6 +9,7 @@ import ColumnHeader from 'components/ColumnHeader';
 import AddPopup from 'components/AddPopup';
 import TaskForm from 'forms/TaskForm';
 import EditPopup from 'components/EditPopup';
+import TaskPresenter from 'presenters/TaskPresenter';
 
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -92,14 +93,16 @@ function TaskBoard() {
   };
 
   const handleCardDragEnd = (task, source, destination) => {
-    const transition = task.transitions.find(
+    const transition = TaskPresenter.transitions(task).find(
       ({ to }) => destination.toColumnId === to,
     );
     if (!transition) {
       return null;
     }
 
-    return TasksRepository.update(task.id, { stateEvent: transition.event })
+    return TasksRepository.update(TaskPresenter.id(task), {
+      stateEvent: transition.event,
+    })
       .then(() => {
         loadColumnInitial(destination.toColumnId);
         loadColumnInitial(source.fromColumnId);
@@ -123,7 +126,7 @@ function TaskBoard() {
   const handleTaskCreate = (params) => {
     const attributes = TaskForm.attributesToSubmit(params);
     return TasksRepository.create(attributes).then(({ data: { task } }) => {
-      loadColumnInitial(task.state);
+      loadColumnInitial(TaskPresenter.state(task));
       handleClose();
     });
   };
@@ -134,20 +137,22 @@ function TaskBoard() {
   const handleTaskUpdate = (task) => {
     const attributes = TaskForm.attributesToSubmit(task);
 
-    return TasksRepository.update(task.id, attributes).then(() => {
-      loadColumnInitial(task.state);
-      handleClose();
-    });
+    return TasksRepository.update(TaskPresenter.id(task), attributes).then(
+      () => {
+        loadColumnInitial(TaskPresenter.state(task));
+        handleClose();
+      },
+    );
   };
 
   const handleTaskDestroy = (task) =>
-    TasksRepository.destroy(task.id).then(() => {
-      loadColumnInitial(task.state);
+    TasksRepository.destroy(TaskPresenter.id(task)).then(() => {
+      loadColumnInitial(TaskPresenter.state(task));
       handleClose();
     });
 
   const handleOpenEditPopup = (task) => {
-    setOpenedTaskId(task.id);
+    setOpenedTaskId(TaskPresenter.id(task));
     setMode(MODES.EDIT);
   };
 
