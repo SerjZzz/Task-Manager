@@ -22,9 +22,16 @@ function UserSelect({
   const [isFocused, setFocus] = useState(false);
   const styles = useStyles();
 
+  const OPTIONS_LOADING_SORT = 'first_name ASC';
+
   const handleLoadOptions = (inputValue) =>
     UsersRepository.index({
-      q: { firstNameOrLastNameCont: inputValue },
+      q: {
+        firstNameOrLastNameCont: inputValue,
+        s: OPTIONS_LOADING_SORT,
+      },
+      page: 1,
+      perPage: 99,
     }).then(({ data }) => data.items);
 
   return (
