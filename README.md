@@ -21,9 +21,11 @@ It is my pioneer effort in developing leading-edge applications based on the tec
   - [Installation](#installation)
     - [Building the project with Docker-compose](#building-the-project-with-docker-compose)
       - [Build docker image](#build-docker-image)
-      - [Up and run docker-compose image](#up-and-run-docker-compose-image)
       - [Install Rails dependencies](#install-rails-dependencies)
+      - [Create Rails database](#create-rails-database)
+      - [Webpacker install and compile assets](#webpacker-install-and-compile-assets)
       - [Interactive bash session](#interactive-bash-session)
+      - [Up and run docker-compose image](#up-and-run-docker-compose-image)
   - [Test suite](#test-suite)
     - [Rails tests](#rails-tests)
     - [Check code-styles with Rubocop](#check-code-styles-with-rubocop)
@@ -43,16 +45,30 @@ All you need to build the project is install Docker and follow the steps below f
 docker-compose build
 ```
 
-#### Up and run docker-compose image
-
-```bash
-docker-compose up
-```
-
 #### Install Rails dependencies
 
 ```bash
 docker-compose run --rm web bash -c "bundle install"
+```
+
+#### Create Rails database
+
+```bash
+docker-compose run --rm web bash -c "bundle exec rails db:create db:migrate"
+```
+
+#### Webpacker install and compile assets
+
+To install run:
+
+```bash
+docker-compose run --rm web bash -c "bundle exec rails webpacker:install"
+```
+
+To compile run:
+
+```bash
+docker-compose run --rm web bash -c "bundle exec rails assets:precompile && bundle exec rails webpacker:compile"
 ```
 
 #### Interactive bash session
@@ -61,6 +77,12 @@ Run interactive bash session if you need to access into the docker container:
 
 ```bash
 docker-compose run --rm --service-ports web /bin/bash
+```
+
+#### Up and run docker-compose image
+
+```bash
+docker-compose up
 ```
 
 ## Test suite
