@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -9,6 +9,8 @@ import useStyles from './useStyles';
 function ColumnHeader({ column, onLoadMore }) {
   const styles = useStyles();
 
+  const [loading, setLoading] = useState(false);
+
   const {
     id,
     title,
@@ -18,7 +20,13 @@ function ColumnHeader({ column, onLoadMore }) {
 
   const count = cards.length;
 
-  const handleLoadMore = () => onLoadMore(id, currentPage + 1);
+  const handleLoadMore = () => {
+    setLoading(true);
+
+    onLoadMore(id, currentPage + 1).then(() => {
+      setLoading(false);
+    });
+  };
 
   return (
     <div className={styles.root}>
@@ -27,7 +35,11 @@ function ColumnHeader({ column, onLoadMore }) {
       </div>
       <div className={styles.actions}>
         {currentPage < totalPages && (
-          <IconButton aria-label="Load more" onClick={() => handleLoadMore()}>
+          <IconButton
+            aria-label="Load more"
+            disabled={loading}
+            onClick={() => handleLoadMore()}
+          >
             <SystemUpdateAltIcon fontSize="small" />
           </IconButton>
         )}
