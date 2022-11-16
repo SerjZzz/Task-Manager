@@ -1,24 +1,89 @@
-# README
+# TaskManager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TaskManager is a Trello-like project that uses the [React-kanban library](https://github.com/asseinfo/react-kanban)
+The project was designed as part of an educational course at [DualBootPartners Inc.](https://dualbootpartners.com/).
+It is my pioneer effort in developing leading-edge applications based on the technology stack below:
 
-Things you may want to cover:
+- [Ruby](https://github.com/ruby/ruby)
+  - [RubyOnRails](https://github.com/rails/rails)
+- [ReactJS](https://github.com/facebook/react)
+  - [ReduxJS](https://github.com/reduxjs/redux)
+    - [React-rdeux](https://github.com/reduxjs/react-redux)
+    - [Redux Toolkit](https://github.com/reduxjs/redux-toolkit)
 
-* Ruby version
+## Table of contents
 
-* System dependencies
+- [TaskManager](#taskmanager)
+  - [Table of contents](#table-of-contents)
+  - [Installation](#installation)
+    - [Building the project with Docker-compose](#building-the-project-with-docker-compose)
+      - [Build docker image](#build-docker-image)
+      - [Up and run docker-compose image](#up-and-run-docker-compose-image)
+      - [Install Rails dependencies](#install-rails-dependencies)
+      - [Interactive bash session](#interactive-bash-session)
+  - [Test suite](#test-suite)
+    - [Rails tests](#rails-tests)
+    - [Check code-styles with Rubocop](#check-code-styles-with-rubocop)
+    - [JavaScript linter](#javascript-linter)
 
-* Configuration
+## Installation
 
-* Database creation
+TaskManager uses [Docker-compose](https://github.com/docker/compose).
 
-* Database initialization
+### Building the project with Docker-compose
 
-* How to run the test suite
+All you need to build the project is install Docker and follow the steps below from project working directory.
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Build docker image
 
-* Deployment instructions
+```bash
+docker-compose build
+```
 
-* ...
+#### Up and run docker-compose image
+
+```bash
+docker-compose up
+```
+
+#### Install Rails dependencies
+
+```bash
+docker-compose run --rm web bash -c "bundle install"
+```
+
+#### Interactive bash session
+
+Run interactive bash session if you need to access into the docker container:
+
+```bash
+docker-compose run --rm --service-ports web /bin/bash
+```
+
+## Test suite
+
+### Rails tests
+
+Run all the tests inside the container.
+
+Run Rails test suite using the code below:
+
+```bash
+bundle exec rails test
+```
+
+### Check code-styles with Rubocop
+
+Execute Ruby and RubyOnRails code-styles tests using the command inside the container:
+
+```bash
+bundle exec rubocop -a
+```
+
+### JavaScript linter
+
+ESlint with Prettier tests can be run via the yarn linter:
+
+```bash
+yarn lint
+```
