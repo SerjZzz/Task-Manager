@@ -1,6 +1,6 @@
-name: Main
+name: Build
 
-on:
+on: 
   pull_request:
     branches:
       - 'develop'
@@ -11,10 +11,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: development
     steps:
       - uses: actions/checkout@v2
+
       - name: Run tests
         env:
           COVERAGE: true
+          COVERALLS_TASKMANAGER_TOKEN: ${{ secrets.COVERALLS_TASKMANAGER_TOKEN }}
           RAILS_ENV: test
         run: docker-compose --file docker-compose.ci.yml run ci
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
