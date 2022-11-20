@@ -3,8 +3,11 @@
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FSerjZzz%2FTask-Manager%2Fbadge%3Fref%3Ddevelop&style=popout)](https://actions-badge.atrox.dev/SerjZzz/Task-Manager/goto?ref=develop)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 
-TaskManager is a Trello-like project that uses the [React-kanban library](https://github.com/asseinfo/react-kanban)
+See the [test production server](https://task-manager-3d2x.onrender.com/board) available at render(dot)com.
+
+TaskManager is a Trello-like project that uses the [React-kanban library](https://github.com/asseinfo/react-kanban).
 The project was designed as part of an educational course at [DualBootPartners Inc.](https://dualbootpartners.com/).
+
 It is my pioneer effort in developing leading-edge applications based on the technology stack below:
 
 - [Ruby](https://github.com/ruby/ruby)
