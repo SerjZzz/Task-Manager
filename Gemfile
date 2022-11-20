@@ -52,14 +52,14 @@ gem 'js-routes'
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
 # Gem adds real-looking test data, and having your database populated with more than one or two records while you're doing development.
 gem 'faker', '~> 2.23'
+# Provides Rails integration for factory_bot.
+# Factory_bot is a fixtures replacement with a straightforward definition syntax,
+# support for multiple build strategies, and factories for the same class, including factory inheritance.
+gem 'factory_bot_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Provides Rails integration for factory_bot.
-  # Factory_bot is a fixtures replacement with a straightforward definition syntax,
-  # support for multiple build strategies, and factories for the same class, including factory inheritance.
-  gem 'factory_bot_rails'
   # RuboCop is a Ruby static code analyzer (a.k.a. linter) and code formatter.
   # Out of the box it will enforce many of the guidelines outlined in the community Ruby Style Guide.
   gem 'rubocop'
