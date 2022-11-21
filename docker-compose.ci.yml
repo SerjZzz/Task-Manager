@@ -9,6 +9,7 @@ services:
       - db
     environment:
       - COVERAGE
+      - CI=true
       - COVERALLS_TASKMANAGER_TOKEN
       - RAILS_ENV
       - DATABASE_HOST=db
