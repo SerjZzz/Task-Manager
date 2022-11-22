@@ -68,6 +68,12 @@ group :development, :test do
   # The Bullet gem help increase application's performance by reducing the number of queries it makes.
   # Watch queries and notify you when add eager loading (N+1 queries).
   gem 'bullet'
+  # The Coveralls.io in 2011 along with the original Ruby gem.
+  # Since 2017 the community members have taken up the charge of maintaining and building upon the original.
+  # Tagliala github repo: https://github.com/tagliala/coveralls-ruby-reborn
+  gem 'coveralls_reborn', '~> 0.25.0', require: false
+  # Simplecov package with all the options for Rails
+  gem 'simplecov-lcov', '~> 0.8.0', require: false
 end
 
 group :development do
