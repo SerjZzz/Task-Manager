@@ -49,6 +49,10 @@ gem 'active_model_serializers'
 gem 'webpacker-react', '~> 0.3.2'
 # Generates javascript file that defines all Rails named routes as javascript helpers
 gem 'js-routes'
+# Rollbar is a real-time exception reporting service for Ruby and other languages.
+# Rollbar-gem is the SDK for Ruby apps and includes support for apps using Rails, Sinatra, Rack, plain Ruby, and other frameworks.
+# Github source code: https://github.com/rollbar/rollbar-gem
+gem 'rollbar'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
