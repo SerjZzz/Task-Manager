@@ -21,3 +21,5 @@ services:
         sync: false
       - key: ROLLBAR_RAILS_ACCESS_TOKEN
         sync: false
+      - key: NEWRELIC_LICENSE_KEY
+        sync: false
