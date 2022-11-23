@@ -24,7 +24,9 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   include AuthHelper
   # Run tests in parallel with specified workers
-  # parallelize(workers: :number_of_processors)
+  # Disable parallelization if only coverage computing
+  # The SimpleCov issue description: https://github.com/simplecov-ruby/simplecov/issues/718
+  ENV['RAILS_ENV'] || parallelize(workers: :number_of_processors)
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   # fixtures :all
