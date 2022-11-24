@@ -53,7 +53,7 @@ gem 'js-routes'
 # Rollbar-gem is the SDK for Ruby apps and includes support for apps using Rails, Sinatra, Rack, plain Ruby, and other frameworks.
 # Github source code: https://github.com/rollbar/rollbar-gem
 gem 'rollbar'
-# The New Relic Ruby agent monitors your applications to help you identify and solve performance issues. 
+# The New Relic Ruby agent monitors your applications to help you identify and solve performance issues.
 # Github source code: https://github.com/newrelic/newrelic-ruby-agent
 gem 'newrelic_rpm'
 

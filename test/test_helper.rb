@@ -23,6 +23,8 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   include AuthHelper
+  include ActionMailer::TestHelper
+
   # Run tests in parallel with specified workers
   # Disable parallelization if only coverage computing
   # The SimpleCov issue description: https://github.com/simplecov-ruby/simplecov/issues/718
