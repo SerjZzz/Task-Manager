@@ -17,9 +17,3 @@ services:
         fromDatabase:
           name: postgres
           property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
-      - key: ROLLBAR_RAILS_ACCESS_TOKEN
-        sync: false
-      - key: NEWRELIC_LICENSE_KEY
-        sync: false

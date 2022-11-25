@@ -23,6 +23,8 @@ services:
       GEM_PATH: /bundle_cache
       RAILS_PORT: 3000
       RUBYOPT: -W:no-deprecated -W:no-experimental
+    env_file:
+      - ./config/.env.development
     command: bundle exec rails s -b '0.0.0.0' -p 3000
 
   db:

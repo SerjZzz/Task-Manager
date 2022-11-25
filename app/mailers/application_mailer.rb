@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@taskmanager.com'
+  default from: ENV['NO_REPLY_EMAIL']
   layout 'mailer'
 end

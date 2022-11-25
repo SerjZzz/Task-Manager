@@ -43,6 +43,9 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Mailer instance required context about the incoming request (the :host parameter).
+  config.action_mailer.default_url_options = { host: ENV['MAILER_HOST'], port: ENV['MAILER_PORT'] }
+
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
