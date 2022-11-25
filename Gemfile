@@ -84,12 +84,19 @@ group :development, :test do
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
+  # Preview email in the default browser instead of sending it.
+  # Letter Opener github repo: https://github.com/ryanb/letter_opener
+  gem 'letter_opener'
+  # Gives letter_opener an interface for browsing sent emails.
+  # Letter Opener Web github repo: https://github.com/fgrehm/letter_opener_web
+  gem 'letter_opener_web'
+  # The Listen gem listens to file modifications and notifies you about the changes.
+  gem 'listen', '~> 3.3'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do
