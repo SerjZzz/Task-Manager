@@ -51,7 +51,6 @@ function Form({ errors, onChange, task }) {
         label="Assignee"
         value={TaskPresenter.assignee(task)}
         onChange={handleChangeSelect('assignee')}
-        isClearable
         isRequired
         error={has('assignee', errors)}
         helperText={errors.assignee}
