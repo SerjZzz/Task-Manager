@@ -83,6 +83,8 @@ Rails.application.configure do
 
   # Mailer instance required context about the incoming request (the :host parameter).
   config.action_mailer.default_url_options = { host: ENV['MAILER_HOST'] }
+  # Check out the HTTPS disabled env and force protocol set to HTTPS if it's true
+  ENV['DISABLE_HTTPS'].present? || config.action_mailer.default_url_options[:protocol] = :https
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
