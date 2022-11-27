@@ -15,7 +15,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal [ENV['DEV_NO_REPLY_EMAIL']], email.from
     assert_equal [user.email], email.to
     assert_equal 'New Task Created', email.subject
-    assert email.body.to_s.include?("Task #{task.id} was created")
+    assert email.body.to_s.include?("Task-##{task.id} was created."), 'The email body does not include expected text'
   end
 
   test 'task updated' do
@@ -32,7 +32,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal [ENV['DEV_NO_REPLY_EMAIL']], email.from
     assert_equal [user.email], email.to
     assert_equal 'Task Updated', email.subject
-    assert email.body.to_s.include?("Task #{task.id} was updated")
+    assert email.body.to_s.include?("Task-##{task.id} was updated."), 'The email body does not include expected text'
   end
 
   test 'task destroyed' do
@@ -50,6 +50,6 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal [ENV['DEV_NO_REPLY_EMAIL']], email.from
     assert_equal [user.email], email.to
     assert_equal 'Task Deleted', email.subject
-    assert email.body.to_s.include?("Task #{task.id} was deleted")
+    assert email.body.to_s.include?("Task-##{task.id} was deleted."), 'The email body does not include expected text'
   end
 end
