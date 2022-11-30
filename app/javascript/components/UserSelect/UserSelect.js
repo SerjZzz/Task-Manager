@@ -12,7 +12,6 @@ import useStyles from './useStyles';
 function UserSelect({
   error,
   label,
-  isClearable,
   isDisabled,
   isRequired,
   onChange,
@@ -51,7 +50,6 @@ function UserSelect({
           getOptionLabel={(user) => UserPresenter.fullName(user)}
           getOptionValue={(user) => UserPresenter.id(user)}
           isDisabled={isDisabled}
-          isClearable={isClearable}
           defaultValue={value}
           onChange={onChange}
           onFocus={() => setFocus(true)}
@@ -68,7 +66,6 @@ function UserSelect({
 UserSelect.propTypes = {
   error: PropTypes.bool,
   label: PropTypes.string.isRequired,
-  isClearable: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isRequired: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
@@ -78,7 +75,6 @@ UserSelect.propTypes = {
 
 UserSelect.defaultProps = {
   error: false,
-  isClearable: true,
   isDisabled: false,
   isRequired: true,
   value: null,

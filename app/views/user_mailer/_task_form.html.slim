@@ -1,0 +1,52 @@
+tr
+  td style=("padding: 0 40px")
+    table width="100%" border="0" cellpadding="0" cellspacing="0" style=("margin: 0; padding: 0")
+      tr
+        td style=("padding: 10px; width: 30%")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            b Task name
+        td style=("padding: 10px")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            = @task.name
+      tr
+        td style=("padding: 10px; width: 30%")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            b Task description
+        td style=("padding: 10px")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            = @task.description
+      tr
+        td style=("padding: 10px; width: 30%")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            b Task state
+        td style=("padding: 10px")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            = @task.state.gsub("_", " ").capitalize
+      - if @task.expired_at.present?
+        tr
+          td style=("padding: 10px; width: 30%")
+            span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+              b Expiration date
+          td style=("padding: 10px")
+            span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+              = @task.expired_at.strftime("%A, %d of %B %Y")
+      - task_author = User.find_by(id: @task.author_id)
+      tr
+        td style=("padding: 10px; width: 30%")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            b Author
+        td style=("padding: 10px")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            | #{task_author.first_name} #{task_author.last_name}
+      - task_assignee = User.find_by(id: @task.assignee_id)
+      tr
+        td style=("padding: 10px; width: 30%")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            b Assignee
+        td style=("padding: 10px")
+          span style=("color: #2b2b2b; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 26px; white-space: pre-line; word-break: break-all")
+            | #{task_assignee.first_name} #{task_assignee.last_name}
+tr
+  td style=("padding: 10px 40px")
+    a href="#{board_url}" style=("color: #ff4080; font-size: 14px; font-family: Arial, Helvetica, sans-serif; line-height: 30px; white-space: pre-line; word-break: break-all") target="_blank" title="Go to the Task Manager board"
+      | Go to the Task Manager board
