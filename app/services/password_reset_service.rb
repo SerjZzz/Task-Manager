@@ -1,0 +1,2 @@
+module PasswordResetService
+end
