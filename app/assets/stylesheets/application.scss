@@ -1,0 +1,39 @@
+//= require material-design-lite/material.min.css
+
+$el_color: #3f51b5 !global;
+$el_color_hover: #b3d4fc !global;
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main {
+  flex: 1 0 auto;
+}
+
+.page-content {
+  padding: 20px;
+  
+  .mdl-textfield {
+    display: block;
+  }
+}
+
+.forgot-password_group > * {
+  color: $el_color;
+  font-size: 14px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+.forgot-password_group:hover > * {
+  color: $el_color_hover;
+}
+  
+.forgot-password_link {
+  display: inline-block;
+  padding: 8px 4px;
+  text-decoration: none;
+}
