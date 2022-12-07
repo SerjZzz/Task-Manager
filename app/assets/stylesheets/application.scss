@@ -1,4 +1,5 @@
 //= require material-design-lite/material.min.css
+//= require notifications
 
 $el_color: #3f51b5 !global;
 $el_color_hover: #b3d4fc !global;
@@ -18,6 +19,10 @@ body {
   
   .mdl-textfield {
     display: block;
+  }
+
+  .mdl-textfield__error {
+    width: 100%;
   }
 }
 

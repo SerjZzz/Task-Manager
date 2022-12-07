@@ -33,6 +33,22 @@ html lang="en"
             = link_to "Sign in", new_session_path, class: 'mdl-navigation__link'
             = link_to "Sign up", new_developer_path, class: 'mdl-navigation__link'
 
+    - flash.each do |flash_type, msg|
+        div class="mdl-snackbar mdl-snackbar--active flash flash-#{flash_type} flash-hidding"
+          div class="flash__text"
+            - case flash_type
+              - when 'error'
+                i.material-icons error_outline
+              - when 'warning'
+                i.material-icons warning_amber
+              - when 'notice'
+                i.material-icons info_outline
+              - when 'success'
+                i.material-icons task_alt
+            = msg
+            button type="button" class="flash__close" onclick="this.parentElement.hidden=true;"
+              i.material-icons close
+
     main#main.mdl-layout__content
       .page-content
         = yield
