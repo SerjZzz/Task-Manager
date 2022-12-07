@@ -30,4 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  session:
+    warnings:
+      already_signed: 'You have been redirected to this page due to an attempt to create a new user session while the current one is still active. Please log out first'
