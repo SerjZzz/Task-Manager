@@ -32,4 +32,26 @@
 en:
   session:
     warnings:
-      already_signed: 'You have been redirected to this page due to an attempt to create a new user session while the current one is still active. Please log out first'
+      already_signed: 'Please log out first. Then try to start the new session once again'
+  developer:  
+    successes:
+      successfully_registered: 'Your account has been successfully registered!'
+  password_reset:
+    warnings:
+      already_signed: 'Please log out first. Then try to reset password once again'
+    notices:
+      email_sent: 'Email with password reset instruction has been sent. Check up your email'
+    successes:
+      password_updated: 'Your password has been successfully updated'
+    errors:
+      invalid_or_expired_token: 'Your token is invalid or has been expired. Please try again.'
+  activemodel:
+    errors:
+      models:
+        password_reset_form:
+          attributes:
+            email:
+              email_not_found: 'The requested email address was not registered'
+  warnings:
+    messages:
+      already_signed: 'Please log out first. Then try once again'

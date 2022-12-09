@@ -1,6 +1,7 @@
 class Web::SessionsController < Web::ApplicationController
   def new
     return redirect_to(:board, warning: I18n.t(:already_signed, scope: 'session.warnings')) if signed_in?
+
     @session = SessionForm.new
   end
 

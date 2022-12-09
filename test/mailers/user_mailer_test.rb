@@ -52,4 +52,21 @@ class UserMailerTest < ActionMailer::TestCase
     assert_equal 'Task Deleted', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was deleted."), 'The email body does not include expected text'
   end
+
+  test 'password reset' do
+    user = create(:user)
+    PasswordResetService.create_token!(user)
+    token = user.password_reset_token_digest
+
+    params = { user: user, token: token }
+    email = UserMailer.with(params).password_reset(user)
+
+    assert_emails 1 do
+      email.deliver_now
+    end
+
+    assert_equal [ENV['NO_REPLY_EMAIL']], email.from
+    assert_equal [user.email], email.to
+    assert_equal 'Password Reset', email.subject
+  end
 end

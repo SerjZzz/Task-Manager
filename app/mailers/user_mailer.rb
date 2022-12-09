@@ -19,4 +19,11 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Task Deleted')
   end
+
+  def password_reset(user)
+    @user = user
+    @token = user.password_reset_token_digest
+
+    mail(to: @user.email, subject: 'Password Reset')
+  end
 end

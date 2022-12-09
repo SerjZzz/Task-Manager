@@ -1,0 +1,2 @@
+password_reset:
+  TOKEN_EXPIRATION_TIME: <%= 1.hour %>
