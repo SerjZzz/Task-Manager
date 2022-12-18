@@ -14,6 +14,14 @@ body {
   flex: 1 0 auto;
 }
 
+a.layout-title {
+  color: inherit;
+}
+
+span.mdl-layout-title {
+  padding-left: 7px;
+}
+
 .page-content {
   padding: 20px;
   

@@ -16,9 +16,9 @@ html lang="en"
     = javascript_packs_with_chunks_tag 'application'
     header.mdl-layout__header
       .mdl-layout__header-row
-        .material-icons tab
         label.mdl-button.mdl-js-button.mdl-button--icon
-          i.material-icons
+          a.layout-title href=(board_path)
+            i.material-icons rocket_launch
         span.mdl-layout-title
           = "Task Manager"
         .mdl-layout-spacer
