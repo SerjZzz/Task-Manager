@@ -3,6 +3,7 @@
 
 $el_color: #3f51b5 !global;
 $el_color_hover: #b3d4fc !global;
+$el_footer: #D32F2F;
 
 body {
   min-height: 100vh;
@@ -31,6 +32,29 @@ span.mdl-layout-title {
 
   .mdl-textfield__error {
     width: 100%;
+  }
+}
+
+.mdl-mini-footer {
+  align-items: center;
+  justify-content: center;
+}
+
+.mdl-logo {
+
+  a, i.red-colored {
+    color: $el_footer;
+  }
+
+  i {
+    vertical-align: middle;
+    padding: 0 4px;
+    font-size: 21px;
+    line-height: normal;
+  }
+
+  i.red-colored {
+    font-size: 24px;
   }
 }
 
