@@ -12,7 +12,7 @@ class UserMailerTest < ActionMailer::TestCase
       email.deliver_now
     end
 
-    assert_equal [ENV['NO_REPLY_EMAIL']], email.from
+    assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
     assert_equal 'New Task Created', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was created."), 'The email body does not include expected text'
@@ -29,7 +29,7 @@ class UserMailerTest < ActionMailer::TestCase
       email.deliver_now
     end
 
-    assert_equal [ENV['NO_REPLY_EMAIL']], email.from
+    assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
     assert_equal 'Task Updated', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was updated."), 'The email body does not include expected text'
@@ -47,7 +47,7 @@ class UserMailerTest < ActionMailer::TestCase
       email.deliver_now
     end
 
-    assert_equal [ENV['NO_REPLY_EMAIL']], email.from
+    assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
     assert_equal 'Task Deleted', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was deleted."), 'The email body does not include expected text'
@@ -65,7 +65,7 @@ class UserMailerTest < ActionMailer::TestCase
       email.deliver_now
     end
 
-    assert_equal [ENV['NO_REPLY_EMAIL']], email.from
+    assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
     assert_equal 'Password Reset', email.subject
   end

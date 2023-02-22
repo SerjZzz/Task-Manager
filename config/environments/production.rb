@@ -72,17 +72,17 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: ENV['MAILER_USERNAME'],
-    password: ENV['MAILER_PASSWORD'],
-    address: ENV['MAILER_ADDRESS'],
-    port: ENV['MAILER_PORT'],
-    domain: ENV['MAILER_DOMAIN'],
-    authentication: ENV['MAILER_AUTHENTICATION'],
+    user_name: Settings.mailer.MAILER_USERNAME,
+    password: Settings.mailer.MAILER_PASSWORD,
+    address: Settings.mailer.MAILER_ADDRESS,
+    port: Settings.mailer.MAILER_PORT,
+    domain: Settings.mailer.MAILER_DOMAIN,
+    authentication: Settings.mailer.MAILER_AUTHENTICATION,
     enable_starttls_auto: true,
   }
 
   # Mailer instance required context about the incoming request (the :host parameter).
-  config.action_mailer.default_url_options = { host: ENV['MAILER_HOST'] }
+  config.action_mailer.default_url_options = { host: Settings.mailer.MAILER_HOST }
   # Check out the HTTPS disabled env and force protocol set to HTTPS if it's true
   ENV['DISABLE_HTTPS'].present? || config.action_mailer.default_url_options[:protocol] = :https
 

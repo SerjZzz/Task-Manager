@@ -65,13 +65,13 @@ group :development, :test do
   gem 'rubocop'
   # Rubocop for Rails
   gem 'rubocop-rails'
-  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
-  # Gem adds real-looking test data, and having your database populated with more than one or two records while you're doing development.
-  gem 'faker', '~> 2.23'
   # Provides Rails integration for factory_bot.
   # Factory_bot is a fixtures replacement with a straightforward definition syntax,
   # support for multiple build strategies, and factories for the same class, including factory inheritance.
   gem 'factory_bot_rails'
+  # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+  # Gem adds real-looking test data, and having your database populated with more than one or two records while you're doing development.
+  gem 'faker', '~> 2.23'
   # The Bullet gem help increase application's performance by reducing the number of queries it makes.
   # Watch queries and notify you when add eager loading (N+1 queries).
   gem 'bullet'
