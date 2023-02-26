@@ -13,7 +13,7 @@ if ENV['CI']
       formatter SimpleCov::Formatter::LcovFormatter
     end
 
-    add_filter ['version.rb', 'initializer.rb']
+    add_filter ['version.rb', 'initializer.rb', 'config.rb']
   end
 end
 
