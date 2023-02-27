@@ -30,15 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  session:
-    warnings:
-      already_signed: 'Please log out first. Then try to start the new session once again'
   developer:  
     successes:
       successfully_registered: 'Your account has been successfully registered!'
   password_reset:
-    warnings:
-      already_signed: 'Please log out first. Then try to reset password once again'
     notices:
       email_sent: 'Email with password reset instruction has been sent. Check up your email'
     successes:

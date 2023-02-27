@@ -16,7 +16,7 @@ class Web::PasswordResetsControllerTest < ActionController::TestCase
     sign_in(user)
     get :new
     assert_response :redirect
-    assert_equal flash[:warning], I18n.t(:already_signed, scope: 'password_reset.warnings')
+    assert_equal flash[:warning], I18n.t(:already_signed, scope: 'warnings.messages')
   end
 
   test 'should post create' do

@@ -47,8 +47,4 @@ class Web::PasswordResetsController < Web::ApplicationController
   def user
     @user ||= PasswordResetService.find_user_by_token(params[:token])
   end
-
-  def require_logout
-    return redirect_to(:board, warning: I18n.t(:already_signed, scope: 'password_reset.warnings')) if signed_in?
-  end
 end
