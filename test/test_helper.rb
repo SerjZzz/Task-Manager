@@ -13,7 +13,7 @@ if ENV['CI']
       formatter SimpleCov::Formatter::LcovFormatter
     end
 
-    add_filter ['version.rb', 'initializer.rb']
+    add_filter ['version.rb', 'initializer.rb', 'config.rb']
   end
 end
 
@@ -23,8 +23,12 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   include AuthHelper
+  include ActionMailer::TestHelper
+
   # Run tests in parallel with specified workers
-  # parallelize(workers: :number_of_processors)
+  # Disable parallelization if only coverage computing
+  # The SimpleCov issue description: https://github.com/simplecov-ruby/simplecov/issues/718
+  ENV['RAILS_ENV'] || parallelize(workers: :number_of_processors)
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   # fixtures :all

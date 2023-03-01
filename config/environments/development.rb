@@ -50,9 +50,17 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  # Browse mails using the web interface
+  config.action_mailer.delivery_method = :letter_opener_web
+  
+  # Mailer instance required context about the incoming request (the :host parameter).
+  config.action_mailer.default_url_options = { host: Settings.mailer.MAILER_HOST, port: Settings.mailer.MAILER_PORT }
+  
+  # Enable fragment caching in mailer views like in application views using the cache method.
+  # Fragment caching is also supported in multipart emails.
+  config.action_mailer.perform_caching = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

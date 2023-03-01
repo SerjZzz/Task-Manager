@@ -1,8 +1,11 @@
 databases:
   - name: postgres
+    databaseName: task_manager
+    user: task_manager
     region: frankfurt
     plan: free
-    postgresMajorVersion: 11
+    postgresMajorVersion: 13
+    ipAllowList: []
 
 services:
   - type: web
@@ -23,3 +26,17 @@ services:
         sync: false
       - key: NEWRELIC_LICENSE_KEY
         sync: false
+      - key: COVERALLS_TASKMANAGER_TOKEN
+        sync: false
+      - key: MAILER_USERNAME
+        sync: false
+      - key: MAILER_PASSWORD
+        sync: false
+      - key: MAILER_ADDRESS
+        sync: false
+      - key: MAILER_DOMAIN
+        sync: false
+      - key: MAILER_PORT
+        value: 587
+      - key: MAILER_AUTHENTICATION
+        value: plain

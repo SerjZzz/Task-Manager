@@ -1,0 +1,85 @@
+.mdl-snackbar.flash {
+  position: fixed;
+  bottom: unset;
+  top: 70px;
+  z-index: 99;
+  border-radius: 4px;
+  box-shadow: 
+    0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+  .flash__text {
+    color: #ffffff;
+    padding: 16px 12px;
+    overflow: auto;
+    box-sizing: inherit;
+    line-height: 1.43;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    
+    & > .material-icons {
+      font-size: 24px;
+      margin-right: 14px;
+      opacity: 0.9;
+    }
+    
+    & > .flash__close {
+      display: flex;
+      color: #ffffff;
+      font-size: 16px;
+      background: transparent;
+      border: none;
+      cursor: default;
+      outline: none;
+      overflow: hidden;
+      opacity: 0.9;
+      padding: 0 18px 0 12px;
+    }
+  }
+    
+  &.flash-error {
+    background-color: #D32F2F;
+  }
+
+  &.flash-warning {
+    background-color: #ED6C02;
+  }
+
+  &.flash-notice {
+    background-color: #0288D1;
+  }
+
+  &.flash-success {
+    background-color: #2E7D32;
+  }
+}
+
+.flash-hidding {
+  animation: hideElement 6s ease-in-out 5s 1 normal both;
+  
+  @keyframes hideElement {
+    0% {
+      opacity: 1;
+    }
+    94% {
+      opacity: 0.42;
+    }
+    96% {
+      opacity: 0.27;
+    }
+    98% {
+      opacity: 0.03;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+}

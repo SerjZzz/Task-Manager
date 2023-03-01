@@ -1,4 +1,6 @@
 class Web::SessionsController < Web::ApplicationController
+  before_action :require_logout, only: :new
+
   def new
     @session = SessionForm.new
   end
