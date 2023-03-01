@@ -50,3 +50,12 @@ en:
   warnings:
     messages:
       already_signed: 'Please log out first. Then try once again'
+  user_mailer:
+    task_created:
+      subject: 'New Task Created | TaskManager Project'
+    task_updated:
+      subject: 'Task Updated | TaskManager Project'
+    task_destroyed:
+      subject: 'Task Deleted | TaskManager Project'
+    password_reset:
+      subject: 'Password Reset | TaskManager Project'

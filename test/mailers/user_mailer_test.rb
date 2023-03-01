@@ -14,7 +14,7 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
-    assert_equal 'New Task Created', email.subject
+    assert_equal 'New Task Created | TaskManager Project', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was created."), 'The email body does not include expected text'
   end
 
@@ -31,7 +31,7 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
-    assert_equal 'Task Updated', email.subject
+    assert_equal 'Task Updated | TaskManager Project', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was updated."), 'The email body does not include expected text'
   end
 
@@ -49,7 +49,7 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
-    assert_equal 'Task Deleted', email.subject
+    assert_equal 'Task Deleted | TaskManager Project', email.subject
     assert email.body.to_s.include?("Task-##{task.id} was deleted."), 'The email body does not include expected text'
   end
 
@@ -67,6 +67,6 @@ class UserMailerTest < ActionMailer::TestCase
 
     assert_equal [Settings.mailer.DEFAULT_NO_REPLY_EMAIL], email.from
     assert_equal [user.email], email.to
-    assert_equal 'Password Reset', email.subject
+    assert_equal 'Password Reset | TaskManager Project', email.subject
   end
 end
