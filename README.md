@@ -6,17 +6,34 @@
 
 See the [test production server](https://task-manager-zk3v.onrender.com/) available at render(dot)com.
 
-TaskManager is a Trello-like project that uses the [React-kanban library](https://github.com/asseinfo/react-kanban).
-The project was designed as part of an educational course at [DualBootPartners Inc.](https://dualbootpartners.com/).
+TaskManager is a Trello-like board project.
+
+The project was designed as the test assignment during educational course at DualBootPartners Inc.
 
 It is my pioneer effort in developing leading-edge applications based on the technology stack below:
 
-- [Ruby](https://github.com/ruby/ruby)
+- Backend API with
+  - [Ruby](https://github.com/ruby/ruby)
   - [RubyOnRails](https://github.com/rails/rails)
-- [ReactJS](https://github.com/facebook/react)
+  - TDD with Minitest
+- Frontend designed using [React-kanban library](https://github.com/asseinfo/react-kanban) with
+  - [ReactJS](https://github.com/facebook/react)
   - [ReduxJS](https://github.com/reduxjs/redux)
-    - [React-rdeux](https://github.com/reduxjs/react-redux)
-    - [Redux Toolkit](https://github.com/reduxjs/redux-toolkit)
+  - [React-rdeux](https://github.com/reduxjs/react-redux)
+  - [Redux Toolkit](https://github.com/reduxjs/redux-toolkit)
+  - [AXIOS](https://github.com/axios/axios) and [Ramda](https://github.com/ramda/ramda) libraries
+- Layout stack
+  - [Slim](https://github.com/slim-template/slim)
+  - [Sass](https://sass-lang.com/)
+  - [Material UI](https://mui.com/core/)
+- Containerization and building application with
+  - [Docker](https://www.docker.com/)
+  - and [Docker Compose](https://github.com/docker/compose) for orchestration
+- Basic CI / CD pipeline configured with [Github Actions](https://github.com/features/actions):
+  - deploy the built code into production on [render(dot)com](https://render.com/)
+  - code coverage with [coveralls.io](https://coveralls.io/)
+  - errors monitoring with [Rollbar](https://rollbar.com/)
+  - performnce reports with [Newrelic](https://newrelic.com/)
 
 ## Table of contents
 
@@ -37,6 +54,7 @@ It is my pioneer effort in developing leading-edge applications based on the tec
   - [Environment variables](#environment-variables)
     - [Rubyconfig Gem](#rubyconfig-gem)
     - [Production ENV variables](#production-env-variables)
+  - [Mailer web-interfaces](#mailer-web-interfaces)
 
 ## Installation
 
@@ -130,3 +148,8 @@ All the custom ENV variables configured with [Rubyconfig Gem](https://github.com
 
 - `.env` file includes all the settings and private keys.
 - `.env.example` file includes all the settings and private keys with empty variables from `.env` file. Copy that file and fill it with valid values when you deploy the project in the new environment.
+
+## Mailer web-interfaces
+
+- `http://localhost:3000/letter_opener/`: Preview email in the default browser instead of sending it in your development environment. Designed with [Letter Opener](https://github.com/ryanb/letter_opener) and [Letter Opener Web](https://github.com/fgrehm/letter_opener_web) Gems.
+- `http://localhost:3000/rails/mailers/user_mailer/`: Preview letters layout using `ActionMailer::Preview`.
