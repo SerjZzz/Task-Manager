@@ -1,0 +1,12 @@
+password_reset:
+  TOKEN_EXPIRATION_TIME: <%= 1.second %>
+# Services access TOKENs
+services:
+  COVERALLS_TASKMANAGER_TOKEN : <%= ENV['COVERALLS_TASKMANAGER_TOKEN']%>
+  ROLLBAR_RAILS_ACCESS_TOKEN : <%= ENV['ROLLBAR_RAILS_ACCESS_TOKEN']%>
+  NEWRELIC_LICENSE_KEY : <%= ENV['NEWRELIC_LICENSE_KEY']%>
+# Mailer and SMTP settings
+mailer:
+  DEFAULT_NO_REPLY_EMAIL: noreply@taskmanager.local
+  MAILER_HOST: localhost
+  MAILER_PORT: 3000
